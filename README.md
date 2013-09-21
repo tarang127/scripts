@@ -1,4 +1,3 @@
-cppVentures
+scripts
 ===========
 
-God bless C++
