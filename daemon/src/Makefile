@@ -15,5 +15,6 @@ daemon: $(OBJS)
 
 clean:
 	rm -rf ../files/*.xml
+	rm -rf ../files/*.xml.html
 	rm -rf daemon
 	rm -rf *o 

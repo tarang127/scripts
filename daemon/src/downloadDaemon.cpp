@@ -9,6 +9,7 @@
 #include "downloadDaemon.h"
 
 int main(int argc, char** argv) {
+/*
   // fork the child
   int pid = fork();
   if (pid < 0) {
@@ -35,18 +36,16 @@ int main(int argc, char** argv) {
     close(STDIN_FILENO);
     close(STDOUT_FILENO);
     close(STDERR_FILENO);
-
+ */
     FileURL fileURLs[] = {
-       FileURL("", "/home5/investa5/scripts/daemon/files/stocksFeed.html", TICKER), 
+       FileURL("/home5/investa5/scripts/daemon/files/stocksFeed.html", "stocksFeed.html", TICKER), 
        FileURL("http://feeds.marketwatch.com/marketwatch/topstories?format=xml", "mwTopStories.xml", FEED), 
        FileURL("http://www.moneycontrol.com/rss/MCtopnews.xml", "mcTopNews.xml", FEED)
     };
 
-    for (int i = 0; i < 2; ++i) {
+    for (int i = 0; i < 3; ++i) {
 	fileURLs[i].processFile();
     }
- }
+ //}
  return 0;
-
-
 }

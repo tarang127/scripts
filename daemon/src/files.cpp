@@ -38,6 +38,7 @@ void FileURL::downloadFile() {
    FILE* _dataFile = fopen(this->OUTPUT_FILE.c_str(), "w+");
    if (!_dataFile) {
       logger.log("Failed to open file to write to it");
+      logger.log(this->OUTPUT_FILE.c_str());
       exit(EXIT_FAILURE);
    }
  
@@ -52,7 +53,8 @@ void FileURL::downloadFile() {
 
       if (code) {
          logger.log("Curl command failed, received the following code");
-         logger.log(curl_easy_strerror(code));
+         logger.log(this->URL.c_str());
+	 logger.log(curl_easy_strerror(code));
       }
 
       curl_easy_cleanup(handle);
