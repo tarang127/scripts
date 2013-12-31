@@ -19,7 +19,7 @@ class LOGGER {
    		
     	    if (indent) {
 	      std::ostringstream stringStream;
-	      stringStream << "[ "<< indent <<" ]: ";
+	      stringStream << "["<< indent <<"]: ";
 	      _indent = stringStream.str();
 	    }
 	  }

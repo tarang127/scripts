@@ -5,16 +5,19 @@
 #ifdef LIBXML_TREE_ENABLED
 
 static void
-print_element_names(xmlNode * a_node)
+print_elements(xmlNode * a_node)
 {
     xmlNode *cur_node = NULL;
 
     for (cur_node = a_node; cur_node; cur_node = cur_node->next) {
-        if (cur_node->type == XML_ELEMENT_NODE) {
-            printf("node type: Element, name: %s\n", cur_node->name);
-        }
+        if (cur_node->type == XML_ELEMENT_NODE && !strcmp(cur_node->name, "item")) {
 
-        print_element_names(cur_node->children);
+	   
+
+            printf("node type: Element, name: %s\n", cur_node->name);
+        } else {
+            print_elements(cur_node->children);
+	}
     }
 }
 
@@ -41,7 +44,7 @@ main(int argc, char **argv)
     /*Get the root element node */
     root_element = xmlDocGetRootElement(doc);
 
-    print_element_names(root_element);
+    print_elements(root_element);
 
     /*free the document */
     xmlFreeDoc(doc);
